@@ -1,11 +1,11 @@
 import { build } from 'esbuild';
 
 build({
-  entryPoints: ['./backend/server.js'],
-  outfile: './dist/server.cjs',
+  entryPoints: ['./server.js'],
+  outfile: './dist/server.mjs',
   platform: 'node',
   target: 'node18',
   bundle: true,
-  format: 'cjs',
+  format: 'esm',  // ✅ ESM mode so import.meta works
   sourcemap: true
 }).catch(() => process.exit(1));
