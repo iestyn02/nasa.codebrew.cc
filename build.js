@@ -1,7 +1,7 @@
 import { build } from 'esbuild';
 
 build({
-  entryPoints: ['./server.js'],
+  entryPoints: ['./backend/server.js'],
   outfile: './dist/server.js',
   bundle: true,
   platform: 'node',
