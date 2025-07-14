@@ -1,11 +1,12 @@
 import { build } from 'esbuild';
 
 build({
-  entryPoints: ['./backend/server.js'],
-  outfile: './build/api/server.mjs',
-  platform: 'node',
-  target: 'node12.19.0',
+  entryPoints: ['./server.js'],
+  outfile: './dist/server.js',
   bundle: true,
-  format: 'esm',  // ✅ ESM mode so import.meta works
-  sourcemap: true
+  platform: 'node',
+  target: 'node18',
+  format: 'cjs',
+  sourcemap: true,
+  external: ['dotenv'], // avoids inlining dotenv
 }).catch(() => process.exit(1));
