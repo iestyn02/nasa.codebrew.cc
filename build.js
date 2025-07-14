@@ -4,7 +4,7 @@ build({
   entryPoints: ['./backend/server.js'],
   outfile: './dist/server.mjs',
   platform: 'node',
-  target: 'node18',
+  target: 'node12.19.0',
   bundle: true,
   format: 'esm',  // ✅ ESM mode so import.meta works
   sourcemap: true
