@@ -1,0 +1,509 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html,
+body {
+	background: #000;
+	/* background-color: rgb(19,19,23); */
+	/* @apply bg-white dark: bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  } */
+}
+
+/* navigation */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/* @font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+} */
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	/* background: #ddd;
+	color: #5a5350;
+	font-weight: 300;
+	font-family: 'Lato', Calibri, Arial, sans-serif; */
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+html,
+body,
+.perspective {
+	width: 100%;
+	height: 100%;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/* To Navigation Style */
+.codrops-top {
+	width: 100%;
+	text-transform: uppercase;
+	font-size: 0.69em;
+	line-height: 2.2;
+	font-weight: 700;
+	/* background: rgba(255,255,255,0.3); */
+}
+
+.codrops-top a {
+	display: inline-block;
+	padding: 0 1em;
+	text-decoration: none;
+	letter-spacing: 0.1em;
+}
+
+.codrops-top a:hover {
+	color: #333;
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	display: block;
+	float: left;
+}
+
+.codrops-icon:before {
+	margin: 0 4px;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: 'codropsicons';
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.main {
+	max-width: 69em;
+	margin: 0 auto;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 0 2em;
+	min-height: 300px;
+	position: relative;
+	text-align: right;
+}
+
+.column:nth-child(2) {
+	box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1);
+	text-align: left;
+}
+
+.column p {
+	font-weight: 300;
+	font-size: 2em;
+	padding: 0 0 0.5em;
+	margin: 0;
+	line-height: 1.5;
+}
+
+.related {
+	text-align: center;
+	font-size: 1.5em;
+	margin-top: 3em;
+	clear: both;
+	padding: 3em 0;
+}
+
+.related a {
+	font-weight: 700;
+	font-size: 0.9em;
+}
+
+@media screen and (max-width: 46.0625em) {
+
+	.column {
+		width: 100%;
+		min-width: auto;
+		min-height: 0;
+		padding: 2em;
+		text-align: center;
+	}
+
+	.column p {
+		font-size: 1.5em;
+	}
+
+	.column:nth-child(2) {
+		text-align: center;
+		box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+	}
+}
+
+@media screen and (max-width: 25em) {
+
+	.codrops-top {
+		font-size: 120%;
+	}
+
+	.codrops-icon span {
+		display: none;
+	}
+
+}
+
+.perspective {
+	background: pink;
+	position: relative;
+}
+
+.containerXX {
+	background: #000;
+	color: #fff;
+	min-height: 100%;
+	position: relative;
+	outline: 1px solid rgba(0, 0, 0, 0);
+	z-index: 10;
+}
+
+.containerXX.transform {
+	-webkit-transform: translateZ(0) translateX(0) rotateY(0deg);
+	/* reset transforms (Chrome bug) */
+	transform: translateZ(0) translateX(0) rotateY(0deg);
+}
+
+.containerXX::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0px;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.2);
+	/* the transition delay of the height needs to be synced with the containerXX transition time */
+	/* -webkit-transition: opacity 0.4s, height 0s 0.4s;
+	transition: opacity 0.4s, height 0s 0.4s; */
+}
+
+.wrapper {
+	position: relative;
+}
+
+.component {
+	margin: 0 auto;
+	width: 60%;
+	text-align: justify;
+	font-size: 1.5em;
+}
+
+/* Modal view */
+.perspective.modalview {
+	position: fixed;
+	-webkit-perspective: 1500px;
+	perspective: 1500px;
+}
+
+.modalview .containerXX {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.modalview .containerXX__close {
+	display: block;
+}
+
+.containerXX__close {
+	display: none;
+	position: absolute;
+	width: 100%;
+	z-index: 6;
+	height: 100%;
+}
+
+.modalview .wrapper {
+	-webkit-transform: translateZ(-1px);
+	/* solves a rendering bug in Chrome on Windows */
+}
+
+.animate .containerXX::after {
+	opacity: 1;
+	height: 101%;
+	/* -webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s; */
+}
+
+/* Outer Nav */
+.outer-nav {
+	position: absolute;
+	height: auto;
+	font-size: 2em;
+}
+
+.outer-nav.vertical {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.outer-nav.horizontal {
+	left: 50%;
+	width: 75%;
+	max-width: 1000px;
+	text-align: center;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.outer-nav.left {
+	left: 25%;
+}
+
+.outer-nav.right {
+	right: 25%;
+}
+
+.outer-nav.top {
+	top: 25%;
+}
+
+.outer-nav.bottom {
+	bottom: 25%;
+}
+
+.outer-nav a {
+	display: inline-block;
+	white-space: nowrap;
+	font-weight: 300;
+	margin: 0 0 30px 0;
+	color: #fff;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.outer-nav a:hover {
+	color: #ffdccd;
+}
+
+.outer-nav.vertical a {
+	display: block;
+}
+
+.outer-nav.horizontal a {
+	margin: 15px 20px;
+}
+
+.outer-nav a::before {
+	display: inline-block;
+	font-family: 'typicons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	margin-right: 10px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+
+.effect-moveleft {
+	background: #fff;
+}
+
+.effect-moveleft .containerXX {
+	-webkit-transition: -webkit-transform 0.4s;
+	/* transition: transform 0.4s; */
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+.effect-moveleft .containerXX::after {
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.effect-moveleft.animate .containerXX {
+	-webkit-transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
+	transform: translateX(-50%) rotateY(45deg) translateZ(-50px);
+}
+
+.no-csstransforms3d .effect-moveleft.animate .containerXX {
+	left: -75%;
+}
+
+.effect-moveleft .outer-nav a {
+	opacity: 0;
+	color: #000000;
+	-webkit-transform: translateX(100px) translateZ(-1000px);
+	transform: translateX(100px) translateZ(-1000px);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+}
+
+.effect-moveleft .outer-nav a:hover {
+	color: #000000;
+}
+
+.effect-moveleft.animate .outer-nav a {
+	opacity: 1;
+	-webkit-transform: translateX(0) translateZ(0);
+	transform: translateX(0) translateZ(0);
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(2) {
+	-webkit-transition-delay: 0.04s;
+	transition-delay: 0.04s;
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(3) {
+	-webkit-transition-delay: 0.08s;
+	transition-delay: 0.08s;
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(4) {
+	-webkit-transition-delay: 0.12s;
+	transition-delay: 0.12s;
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(5) {
+	-webkit-transition-delay: 0.16s;
+	transition-delay: 0.16s;
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(6) {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.effect-moveleft.animate .outer-nav a:nth-child(7) {
+	-webkit-transition-delay: 0.24s;
+	transition-delay: 0.24s;
+}
+
+/* Media Queries */
+@media screen and (max-width: 77em) {
+
+	.outer-nav.top {
+		top: 15%;
+	}
+
+	.outer-nav.bottom {
+		bottom: 15%;
+	}
+}
+
+@media screen and (max-width: 36.625em),
+screen and (max-height: 41.75em) {
+
+	.outer-nav.top {
+		top: 5%;
+	}
+
+	.outer-nav.bottom {
+		bottom: 5%;
+	}
+
+	.outer-nav.horizontal {
+		font-size: 1.7em;
+		width: 6.2em;
+	}
+
+	.outer-nav.horizontal a {
+		display: block;
+		text-align: left;
+	}
+}
+
+@media screen and (max-width: 31em),
+screen and (max-height: 36.2em) {
+
+	.outer-nav.horizontal,
+	.outer-nav.vertical {
+		font-size: 1.2em;
+		width: 6.8em;
+	}
+
+	.outer-nav.right {
+		right: auto;
+		left: 50%;
+	}
+}
+
+@media screen and (max-height: 31.6em) {
+	.outer-nav a {
+		margin-bottom: 20px;
+	}
+}
+
+.logo {
+	width: 52px;
+	height: 20px;
+	display: block;
+	background-size: contain;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	filter: brightness(0) invert(1);
+}
+
+/* @lib overrides */
+.react-datepicker-wrapper {
+	width: 100%;
+}
+
+.css-t3ipsp-control,
+.css-13cymwt-control {
+	background: rgba(255, 255, 255, 0.1) !important;
+	border-radius: 50px !important;
+	border: 0 !important;
+	min-height: 40px !important;
+	padding-left: calc(0.5rem * 4) !important;
+}
+.css-1cfo1cf,
+.css-1dimb5e-singleValue {
+	color: #fff !important;
+}
+
+.snapshot-bg {
+	background-position-x: center;
+	background-position-y: center;
+	background-size: cover;
+}

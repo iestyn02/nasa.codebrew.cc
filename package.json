@@ -1,0 +1,46 @@
+{
+  "name": "nasa.codebrew.cc",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "homepage": "https://example.com/docs",
+  "scripts": {
+    "build": "react-router build",
+    "_build": "vite build  --base=/a5de8ad3/",
+    "dev": "react-router dev",
+    "dev:be": "nodemon backend/server",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@react-router/node": "7.6.3",
+    "@react-router/serve": "7.6.3",
+    "axios": "1.10.0",
+    "cors": "2.8.5",
+    "dotenv": "17.2.0",
+    "isbot": "5.1.27",
+    "lodash.debounce": "4.0.8",
+    "node-cache": "5.1.2",
+    "react": "19.1.0",
+    "react-datepicker": "8.4.0",
+    "react-dom": "19.1.0",
+    "react-router": "7.6.3",
+    "react-select": "5.10.1",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.6.3",
+    "@tailwindcss/vite": "4.1.4",
+    "@types/lodash.debounce": "4.0.9",
+    "@types/node": "20",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "@vitejs/plugin-react": "4.6.0",
+    "fs": "^0.0.1-security",
+    "nodemon": "3.1.10",
+    "tailwindcss": "4.1.4",
+    "typescript": "5.8.3",
+    "vite": "6.3.3",
+    "vite-tsconfig-paths": "5.1.4"
+  }
+}
