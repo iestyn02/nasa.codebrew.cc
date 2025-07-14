@@ -1,12 +1,11 @@
 export default {
   apps: [
     {
-      name: "nasa-api",
-      script: "./backend/server.js",
-      // cwd: "/absolute/path/to/your/project",
-      env: {
-        NODE_ENV: "production",
-      },
+      name: "server",
+      script: "./server.js",
+      cwd: "/var/api/nasa.codebrew.cc/backend",
+      interpreter: "node",
+      node_args: "--enable-source-maps",
     },
   ],
 };
