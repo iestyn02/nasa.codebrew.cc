@@ -2,7 +2,7 @@ import { build } from 'esbuild';
 
 build({
   entryPoints: ['./backend/server.js'],
-  outfile: './dist/server.mjs',
+  outfile: './build/api/server.mjs',
   platform: 'node',
   target: 'node12.19.0',
   bundle: true,
