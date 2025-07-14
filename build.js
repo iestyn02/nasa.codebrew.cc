@@ -2,11 +2,10 @@ import { build } from 'esbuild';
 
 build({
   entryPoints: ['./backend/server.js'],
-  outfile: './dist/server.js',
+  outfile: './dist/server.mjs',         // <- use .mjs
   bundle: true,
   platform: 'node',
   target: 'node18',
-  format: 'cjs',
-  sourcemap: true,
-  external: ['dotenv'], // avoids inlining dotenv
+  format: 'esm',                        // <- required for import/export + import.meta
+  sourcemap: true
 }).catch(() => process.exit(1));
