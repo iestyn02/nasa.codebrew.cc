@@ -1,8 +1,6 @@
-# NASA CodeBrew
+# NASA App
 
 A full-stack web application built with React and Express that connects users to real-time NASA data. Explore the universe through high-resolution images from the Astronomy Picture of the Day (APOD), browse Mars rover photos, and dive into space-related content—all powered by NASA's public APIs. Fast, responsive, and designed for space lovers.
-
-<!-- ✅ `.env` is automatically generated when you run the setup script. -->
 
 ---
 
@@ -99,6 +97,34 @@ docker run -p 3000:3000 nasa-app
 ```
 
 --- -->
+<br></br>
+
+## ✅ TODO
+
+A list of key features and tasks still in progress or planned:
+
+1. **Implement `/moon` route**  
+   - Integrate with relevant NASA APIs (e.g., Moon phase, imagery, coordinates)  
+   - Incorporate Google Maps API or similar for visual/geolocation context
+
+2. **Testing**  
+   - Unit tests for route handlers and middleware  
+   - Integration testing (API requests/responses)  
+
+3. **Error Handling Improvements**  
+   - Add user-friendly error messages for failed API calls  
+   - Retry logic or fallback responses
+
+4. **API Rate Limit Awareness**  
+   - Respect NASA API rate limits with caching or throttling
+
+5. **.env Validation**  
+   - Add runtime checks to validate required `.env` variables exist
+
+6. **Documentation Enhancements**  
+   - Auto-generate API docs (Swagger or markdown)  
+   - Include more code comments and usage examples
+
 <br></br>
 
 ## 📜 License
