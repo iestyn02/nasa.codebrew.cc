@@ -32,8 +32,26 @@ npm run start
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
 <!-- --- -->
-<br><br>
+<br>
 
+## ⚙️ Environment Variables (`.env`)
+
+The application uses a `.env` file to manage environment-specific settings like ports and API keys. This file is automatically created for you on first run via a setup script.
+
+### 🔑 Required Variables
+
+| Variable              | Description                                         | Default                                      |
+|-----------------------|-----------------------------------------------------|----------------------------------------------|
+| `PORT`                | Port on which the server will run                   | `3000`                                       |
+| `NASA_API_KEY`        | Your NASA API key *(or use `DEMO_KEY`)*             | `DEMO_KEY`                                   |
+| `VITE_GEO_APIFY_KEY`  | API key for GeoApify geolocation service            | `16b327cb8cd64ca19a688553da6a6630`           |
+| `VITE_API_URL`        | Base URL for backend API                            | `https://api.codebrew.cc/nasa`              |
+
+> If the `.env` file is missing, a setup script will prompt you to enter these values and generate it automatically.
+
+
+
+<br>
 ## 🛠️ Tech Stack
 
 - **React**
@@ -44,7 +62,7 @@ npm run start
 - **Express**
 
 <!-- --- -->
-<br><br>
+<br>
 
 ## 📂 Project Structure
 
@@ -60,7 +78,7 @@ src/
 ```
 
 <!-- --- -->
-<br><br>
+<br>
 
 ## 🧪 Testing
 
@@ -81,7 +99,7 @@ docker run -p 3000:3000 nasa-app
 ```
 
 --- -->
-<br><br>
+<br>
 
 ## 📜 License
 
