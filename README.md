@@ -10,7 +10,7 @@ Check out the live version of the app:
 **🔗 [demo.codebrew.cc/a5de8ad3](https://demo.codebrew.cc/a5de8ad3)**
 
 > Hosted version of the NASA App project with full frontend + backend integration.
-&nbsp;
+---
 
 ## 🚀 Getting Started
 
