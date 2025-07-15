@@ -11,8 +11,8 @@ A full-stack web application built with React and Express that connects users to
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/your-repo.git
-cd your-repo
+git clone https://github.com/iestyn02/nasa.codebrew.cc.git
+cd nasa.codebrew.cc
 ```
 
 ### 2. Install Dependencies
@@ -21,10 +21,10 @@ cd your-repo
 npm install
 ```
 
-### 3. Start the Development Server
+### 3. Start the Development Servers
 
 ```bash
-npm run dev
+npm run start
 ```
 
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
