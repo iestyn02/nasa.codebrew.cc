@@ -10,6 +10,7 @@
     "dev:be": "nodemon backend/server",
     "dev:fe": "react-router dev",
     "dev": "concurrently \"npm run dev:fe\" \"npm run dev:be\"",
+    "gen:env": "node ./.scripts/create.env.js",
     "start": "node ./.scripts/create.env.js && concurrently \"npm run dev:fe\" \"npm run dev:be\"",
     "typecheck": "react-router typegen && tsc"
   },
