@@ -40,5 +40,4 @@ npm run dev:be
 
 ## ✨ Notes
 
-- No dedicated Express.js or REST API logic is currently present.
-- Backend functionality may be embedded in the frontend or powered by an external API (e.g. NASA APIs).
+- Should create an auto deploy using CirclCI

@@ -10,6 +10,9 @@ Check out the live version of the app:
 **🔗 [demo.codebrew.cc/a5de8ad3](https://demo.codebrew.cc/a5de8ad3)**
 
 > Hosted version of the NASA App project with full frontend + backend integration.
+
+![App screenshot](.bin/home_screen.png)
+
 ---
 
 ## 🚀 Getting Started
@@ -146,6 +149,9 @@ A list of key features and tasks still in progress or planned:
    - Auto-generate API docs (Swagger or markdown)  
    - Include more code comments and usage examples
 
+7. **Auto Deployment**  
+   - Continuous Deployment implementation via hooks & CircleCI
+   
 &nbsp;
 
 ## 📜 License
