@@ -5,11 +5,11 @@
   "version": "1.0.0",
   "homepage": "https://example.com/docs",
   "scripts": {
-    "build": "react-router build",
+    "build:fe": "react-router build",
     "build:be": "node build.js",
-    "_build": "vite build  --base=/a5de8ad3/",
-    "dev": "react-router dev",
+    "dev:fe": "react-router dev",
     "dev:be": "nodemon backend/server",
+    "dev": "concurrently \"npm run dev:fe\" \"npm run dev:be\"",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
@@ -37,6 +37,7 @@
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "@vitejs/plugin-react": "4.6.0",
+    "concurrently": "^9.2.0",
     "esbuild": "^0.25.6",
     "fs": "^0.0.1-security",
     "nodemon": "3.1.10",
