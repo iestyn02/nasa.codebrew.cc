@@ -27,6 +27,8 @@ npm install
 npm run start
 ```
 
+> This command starts both the frontend and backend servers in parallel, allowing them to run simultaneously during development.
+
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
 <!-- --- -->
