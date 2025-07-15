@@ -1,8 +1,8 @@
 # NASA CodeBrew
 
-A full-stack web application built using modern web technologies to interface with NASA APIs and present data in an interactive format.
+A full-stack web application built with React and Express that connects users to real-time NASA data. Explore the universe through high-resolution images from the Astronomy Picture of the Day (APOD), browse Mars rover photos, and dive into space-related content—all powered by NASA's public APIs. Fast, responsive, and designed for space lovers.
 
-✅ `.env` is automatically generated when you run the setup script.
+<!-- ✅ `.env` is automatically generated when you run the setup script. -->
 
 ---
 
@@ -29,7 +29,7 @@ npm run dev
 
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
----
+<!-- --- -->
 ## 🛠️ Tech Stack
 
 - **React**
@@ -54,7 +54,7 @@ src/
 └── ...
 ```
 
----
+<!-- --- -->
 
 ## 🧪 Testing
 
@@ -63,7 +63,7 @@ No Testing implemented
 npm run test
 ``` -->
 
----
+<!-- --- -->
 
 <!-- ## 🐳 Docker
 
