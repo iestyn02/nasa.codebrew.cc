@@ -30,6 +30,8 @@ npm run dev
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
 <!-- --- -->
+<br><br>
+
 ## 🛠️ Tech Stack
 
 - **React**
@@ -39,7 +41,8 @@ npm run dev
 - **NodeJS**
 - **Express**
 
----
+<!-- --- -->
+<br><br>
 
 ## 📂 Project Structure
 
@@ -55,6 +58,7 @@ src/
 ```
 
 <!-- --- -->
+<br><br>
 
 ## 🧪 Testing
 
@@ -75,6 +79,7 @@ docker run -p 3000:3000 nasa-app
 ```
 
 --- -->
+<br><br>
 
 ## 📜 License
 
