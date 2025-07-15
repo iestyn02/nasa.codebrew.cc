@@ -8,13 +8,7 @@ import { AppContext } from '../../state/context';
 
 import HeaderComponent from '../../components/header';
 
-// export interface AssetResponse { 
-//     collection: { 
-//         href: string;
-//         items: { href: string }[];
-//         version: string | '1.1' | '1.0';
-//     } 
-// }
+import { TITLE, DESCRIPTION } from '../../constants';
 
 export interface AssetResponse {
     asset: {
@@ -29,8 +23,8 @@ export interface AssetResponse {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
+    { title: TITLE },
+    { name: 'description', DESCRIPTION },
   ];
 }
 
@@ -50,6 +44,7 @@ export default function ImagePage() {
         const res = await fetch(`http://localhost:8495/archive/${id}`);
         const data: AssetResponse = await res.json();
 
+        setThumbs(data.thumbnails);
         setMetaData(data.asset);
     };
 
@@ -79,19 +74,11 @@ export default function ImagePage() {
                         <div className="flex-1">
                             { metaData && 
                                 <div className={`bg-black rounded-lg overflow-hidden ${(metaData as AssetResponse['asset']).type === 'image' ? 'aspect-image' : 'aspect-video'}` }>
-                                    {/* <!-- Replace with <iframe> or <video> tag --> */}
-                                    {/* <iframe
-                                        className="w-full h-full"
-                                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                        frameBorder="0"
-                                        allowFullScreen
-                                    ></iframe> */}
-
                                         { (metaData as AssetResponse['asset']).type === 'image' ?
                                         <img src={ stripTif(metaData.url) } /> :
                                         <video
                                             controls
-                                            // poster={poster}
+                                            poster={thumbs ? thumbs.thumb[0] : null }
                                             className="w-full h-auto bg-black"
                                         >
                                             <source src={ metaData.url } type="video/mp4" />
@@ -140,13 +127,13 @@ export default function ImagePage() {
 
                         {/* <!-- Recommended Videos --> */}
                         <div className="w-full lg:w-80 space-y-4">
-                            { thumbs && thumbs.map((_: any, i: number) => (
+                            { thumbs && thumbs['thumb'].map((url: string, i: number) => (
                                 <div className="flex gap-3 bg-black" key={i}>
                                     <div className="w-40 aspect-video bg-white rounded">
-                                        <img src={_.href} />
+                                        <img src={url} />
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-sm font-medium leading-snug">Recommended Video Title {i + 1}</p>
+                                        <p className="text-sm font-medium leading-snug">Thumbnail {i + 1}</p>
                                         <p className="text-xs text-gray-500">Channel · 100K views</p>
                                     </div>
                                 </div>

@@ -11,8 +11,8 @@ import type { Route } from './+types/root';
 
 import { AppProvider } from './state/context';
 
-import './app.css';
-import './2.css';
+import './styles/app.css';
+import './styles/2.css';
 import './styles/icons.css';
 
 /** @components */

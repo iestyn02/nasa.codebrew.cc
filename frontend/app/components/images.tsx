@@ -4,30 +4,35 @@ import { useSearchParams, useNavigate } from 'react-router';
 
 import MediaCardComponent from './media-card';
 
-export interface ImagesResponse { 
-    collection: { 
-        href: string;
-        items: any[];
-        // items: [ {href: "https://images-assets.nasa.gov/video/ObserveTheMoon_16x9/collection.json",…}, {,…},…]
-        // links: [{rel: "next", prompt: "Next",…}]
-        metadata:  {
-            total_hits: 556
-        };
-        version: string | '1.1';
-    } 
+import { API_URL } from '../constants';
+
+export interface AssetItem {
+    id: string;
+    title: string;
+    description: string;
+    date_created: string;
+    thumb: string;
+    type: 'video' | 'audio' | 'image';
 }
 
+export interface AssetsResponse {
+    assets: AssetItem[];
+    meta: {
+        total_items: number;
+    }
+}
 const base = import.meta.env.VITE_BASE_PATH;
 
 export function ImagesComponent() {
     const navigate = useNavigate();
+
     const [searchParams] = useSearchParams();
     const [query, setQuery] = useState('');
 
     const [results, setResults] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // @note ~ pagination
+    /** @note ~ pagination */
     const ITEMS_PER_PAGE = 12
     const [ currentPage, setCurrentPage ] = useState(1);
     const [ totalItems, setTotalItems ] = useState(0);
@@ -48,10 +53,10 @@ export function ImagesComponent() {
                 search: `?query=${query}&page=${page}`
             });
      
-            const res = await fetch(`https://images-api.nasa.gov/search?q=${query}&page=${page}&page_size=${ITEMS_PER_PAGE}`);
-            const data: ImagesResponse = await res.json();
-            setResults(data.collection.items);
-            setTotalItems(data.collection.metadata.total_hits);
+            const res = await fetch(`${API_URL}/archive?q=${query}&page=${page}&page_size=${ITEMS_PER_PAGE}`);
+            const data: AssetsResponse = await res.json();
+            setResults(data.assets);
+            setTotalItems(data.meta.total_items);
         }
       
         setLoading(false);

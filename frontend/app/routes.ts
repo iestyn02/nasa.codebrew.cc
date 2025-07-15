@@ -8,6 +8,6 @@ export default [
     route(`/images`, 'routes/images/page.tsx'),
     route(`/images/:id`, 'routes/images/[id].tsx'),
     route(`/moon`, 'routes/moon.tsx'),
-    route(`/snapshot`, 'routes/snapshot.tsx'),
-    route(`/snapshot/fetch`, 'routes/snapshot-result.tsx')
+    route(`/snapshot`, 'routes/snapshot/page.tsx'),
+    route(`/snapshot/fetch`, 'routes/snapshot/fetch.tsx')
 ] satisfies RouteConfig;

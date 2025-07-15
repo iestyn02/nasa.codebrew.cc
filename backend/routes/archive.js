@@ -7,7 +7,6 @@ import { from, of, switchMap, map, catchError, lastValueFrom } from 'rxjs';
 import { cacheMiddleware } from '../middleware/index.js';
 
 import {
-  NASA_BASE_URL,
   NASA_IMAGE_BASE_URL
 } from '../constants/index.js';
 
@@ -44,23 +43,50 @@ const formatDate = (input) => {
   return `${date.toISOString().split('T')[0]}`;
 };
 
+const getThumbnail = (links) => {
+  if (!Array.isArray(links) || links.length === 0) return undefined;
+
+  /** @note ~  Try to find the "preview" image */ 
+  const preview = links.find(link => link.rel === 'preview' && link.render === 'image');
+  if (preview) return preview.href;
+
+  /** @note ~ Fallback: return the first "image" entry */
+  const firstImage = links.find(link => link.render === 'image');
+  return firstImage?.href;
+}
+
 const ITEMS_PER_PAGE = 12
 
 router.get('/', cacheMiddleware(
-  req => `archive_${req.params.query}_${req.params.page}`,
+  req => `archive_${req.query.q}_${req.query.page}`,
   async (req) => {
 
-    const { query, page } = req.query;
+    const { q, page } = req.query;
 
     const response = await axios.get(`${NASA_IMAGE_BASE_URL}/search`, {
       params: {
-        q: query,
+        q,
         page: page || 1,
         page_size: ITEMS_PER_PAGE
       },
     });
 
-    return response.data;
+    const assets = response.data && response.data.collection?.items ? response.data.collection.items.map((item) => ({
+      id: item.data[0].nasa_id,
+      title: item.data[0].title,
+      date_created: formatDate(item.data[0].date_created),
+      thumb: item.data[0].media_type === 'audio' ? 'https://cdn.codebrew.cc/img/audio.png' : getThumbnail(item.links),
+      type: item.data[0].media_type,
+      description: item.data[0].description
+    })) : [];
+    
+    return {
+      assets,
+      meta: {
+          total_items: response.data.collection.metadata.total_hits
+      }
+    }
+    
   }
 ));
 

@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'react-router';
 
-import type { Route } from './+types/home';
+import type { Route } from '../+types/home';
 
-import { TITLE, DESCRIPTION, API_URL } from '../constants';
+import { TITLE, DESCRIPTION, API_URL } from '../../constants';
 
-import HeaderComponent from '../components/header';
+import HeaderComponent from '../../components/header';
 
 export function meta({}: Route.MetaArgs) {
   return [

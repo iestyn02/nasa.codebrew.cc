@@ -8,10 +8,12 @@ import HeaderComponent from '../../components/header';
 
 import { ImagesComponent } from '../../components/images';
 
+import { TITLE, DESCRIPTION } from '../../constants';
+
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
+    { title: TITLE },
+    { name: 'description', content: DESCRIPTION },
   ];
 }
 
