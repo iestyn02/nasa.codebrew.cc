@@ -71,7 +71,7 @@ The application uses a `.env` file to manage environment-specific settings like 
 
 ## 📂 Project Structure
 
-[backend/]('https://github.com/iestyn02/nasa.codebrew.cc/tree/main/backend')  
+[backend/](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/backend)  
 
 ```bash
 nasa.codebrew.cc/
