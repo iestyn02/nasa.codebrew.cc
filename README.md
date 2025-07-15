@@ -152,6 +152,9 @@ A list of key features and tasks still in progress or planned:
 7. **Auto Deployment**  
    - Continuous Deployment implementation via hooks & CircleCI
    
+8. **Sky Snapshot Viewer**  
+   - Current implementation using an iframe does not persist date and coordinates due to URL limitations. Investigate alternative methods for visualizing sky snapshots, such as embedding images directly or using a custom viewer with coordinate + date control.
+
 &nbsp;
 
 ## 📜 License
