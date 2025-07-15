@@ -71,16 +71,23 @@ The application uses a `.env` file to manage environment-specific settings like 
 
 ## 📂 Project Structure
 
-<!-- [backend/](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/backend)   -->
-
+```bash
 nasa.codebrew.cc/
 ├── .bin/               # Assets and binaries (e.g., screenshots, extra docs)
-├── .scripts/           # Automatically generates a .env file by prompting the user for required environment variables. Skips creation if one already exists.
-├── [backend/](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/backend)       # Backend code (NodeJS + Express)
-├── [frontend/](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/frontend)     # Frontend code (React + Vite)
+├── .scripts/           # Environment setup scripts
+├── backend/            # Backend code (NodeJS + Express)
+├── frontend/           # Frontend code (React + Vite)
 ├── react-router.config.ts
 ├── vite.config.ts
 └── ...
+```
+
+&nbsp;
+
+#### 🔗 Quick Links
+
+- [`backend/`](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/backend) – Backend code (NodeJS + Express)
+- [`frontend/`](https://github.com/iestyn02/nasa.codebrew.cc/tree/main/frontend) – Frontend code (React + Vite)
 
 &nbsp;
 
