@@ -8,7 +8,7 @@ import { AppContext } from '../../state/context';
 
 import HeaderComponent from '../../components/header';
 
-import { TITLE, DESCRIPTION } from '../../constants';
+import { TITLE, DESCRIPTION, API_URL } from '../../constants';
 
 export interface AssetResponse {
     asset: {
@@ -41,7 +41,7 @@ export default function ImagePage() {
     }, [dispatch]);
 
     const fetchData = async (id: string | number) => {
-        const res = await fetch(`http://localhost:8495/archive/${id}`);
+        const res = await fetch(`${API_URL}/archive/${id}`);
         const data: AssetResponse = await res.json();
 
         setThumbs(data.thumbnails);
