@@ -80,7 +80,7 @@ src/
 ├── react-router.config.ts
 ├── vite.config.ts
 └── ...
-
+```
 
 &nbsp;
 
