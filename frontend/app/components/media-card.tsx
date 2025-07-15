@@ -3,10 +3,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const MediaCardComponent: React.FC<any> = ({ item }) => {
-    const base = import.meta.env.VITE_BASE_PATH;
-
     return (
-        <Link to={ base + 'images/' + item.data[0].nasa_id }>
+        <Link to={ '/images/' + item.data[0].nasa_id }>
             <div key={item.id}
                 className="relative group bg-white/10 rounded-lg shadow overflow-hidden cursor-pointer flex flex-col">
                 <div className="aspect-video relative">

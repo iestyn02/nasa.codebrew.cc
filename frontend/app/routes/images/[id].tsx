@@ -8,12 +8,23 @@ import { AppContext } from '../../state/context';
 
 import HeaderComponent from '../../components/header';
 
-export interface AssetResponse { 
-    collection: { 
-        href: string;
-        items: { href: string }[];
-        version: string | '1.1' | '1.0';
-    } 
+// export interface AssetResponse { 
+//     collection: { 
+//         href: string;
+//         items: { href: string }[];
+//         version: string | '1.1' | '1.0';
+//     } 
+// }
+
+export interface AssetResponse {
+    asset: {
+        url: string;
+        title: string;
+        description: string;
+        date_created: string;
+        type: 'image' | 'video' | 'audio';
+    };
+    thumbnails?: [];
 }
 
 export function meta({}: Route.MetaArgs) {
@@ -26,8 +37,8 @@ export function meta({}: Route.MetaArgs) {
 export default function ImagePage() {
     const { id } = useParams();
 
-    const { state, dispatch } = useContext(AppContext);
-    const [ assets, setAssets ] = useState<any[]>([]);
+    const { dispatch } = useContext(AppContext);
+    const [ thumbs, setThumbs ] = useState<any>(null);
     const [ metaData, setMetaData ] = useState<any>(null);
 
     useEffect(() => {
@@ -35,18 +46,11 @@ export default function ImagePage() {
         dispatch({ type: 'SET_MENU', payload: false });
     }, [dispatch]);
 
-    const fetchData = async (query: string, page: number = 1) => {
-        const res = await fetch(`https://images-api.nasa.gov/asset/${id}`);
-        const data: any = await res.json();
-        setAssets(data.collection.items);
+    const fetchData = async (id: string | number) => {
+        const res = await fetch(`http://localhost:8495/archive/${id}`);
+        const data: AssetResponse = await res.json();
 
-        const _ = await fetch(`https://images-api.nasa.gov/metadata/${id}`);
-        const link: any = await _.json();
-
-        const final = await fetch(link.location);
-        const _meta: any = await final.json();
-
-        setMetaData(_meta);
+        setMetaData(data.asset);
     };
 
     const parseDate = (d: string): string => {
@@ -73,8 +77,8 @@ export default function ImagePage() {
                 <div className="min-h-screen bg-black-50 p-4">
                     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
                         <div className="flex-1">
-                            { assets && assets.length && 
-                                <div className={`bg-black rounded-lg overflow-hidden ${metaData['AVAIL:MediaType'] === 'image' ? 'aspect-image' : 'aspect-video'}` }>
+                            { metaData && 
+                                <div className={`bg-black rounded-lg overflow-hidden ${(metaData as AssetResponse['asset']).type === 'image' ? 'aspect-image' : 'aspect-video'}` }>
                                     {/* <!-- Replace with <iframe> or <video> tag --> */}
                                     {/* <iframe
                                         className="w-full h-full"
@@ -83,14 +87,14 @@ export default function ImagePage() {
                                         allowFullScreen
                                     ></iframe> */}
 
-                                        { metaData['AVAIL:MediaType'] === 'image' ?
-                                        <img src={ stripTif(assets[1].href) } /> :
+                                        { (metaData as AssetResponse['asset']).type === 'image' ?
+                                        <img src={ stripTif(metaData.url) } /> :
                                         <video
                                             controls
                                             // poster={poster}
                                             className="w-full h-auto bg-black"
                                         >
-                                            <source src={ assets[0].href } type="video/mp4" />
+                                            <source src={ metaData.url } type="video/mp4" />
                                             Your browser does not support the video tag.
                                         </video>
                                         }
@@ -99,7 +103,7 @@ export default function ImagePage() {
 
                             {/* <!-- Video Title --> */}
                             <h1 className="mt-4 text-xl font-semibold mb-8">
-                                { metaData['AVAIL:Title'] }
+                                { metaData.title }
                             </h1>
 
                             {/* <!-- Channel Info + Actions --> */}
@@ -125,10 +129,10 @@ export default function ImagePage() {
                             {/* <!-- Video Description --> */}
                             <div className="mt-4 bg-white/10 rounded p-4 shadow text-sm text-gray-200">
                                 <p>
-                                1.2M views • { parseDate(metaData['AVAIL:DateCreated']) }
+                                1.2M views • { parseDate((metaData as AssetResponse['asset']).date_created) }
                                 <br />
                                 <br />
-                                { metaData['XMP:Description'] || 'No Description' }
+                                { (metaData as AssetResponse['asset']).description || 'No Description' }
                                 {/* This is an example description. Add your video summary, links, timestamps, and more here. */}
                                 </p>
                             </div>
@@ -136,7 +140,7 @@ export default function ImagePage() {
 
                         {/* <!-- Recommended Videos --> */}
                         <div className="w-full lg:w-80 space-y-4">
-                            { assets.map((_, i) => (
+                            { thumbs && thumbs.map((_: any, i: number) => (
                                 <div className="flex gap-3 bg-black" key={i}>
                                     <div className="w-40 aspect-video bg-white rounded">
                                         <img src={_.href} />

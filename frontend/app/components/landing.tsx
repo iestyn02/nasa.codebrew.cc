@@ -1,10 +1,8 @@
-import React, { useContext, useState, type ChangeEvent, type FormEvent } from 'react';
+import React, { useContext, useState, type FormEvent } from 'react';
 
 import { Link, useNavigate } from 'react-router';
 
 import { AppContext } from '../state/context';
-
-const base = import.meta.env.VITE_BASE_PATH;
 
 const LandingComponent: React.FC = () => {
 
@@ -38,17 +36,6 @@ const LandingComponent: React.FC = () => {
             <div className="text-center mt-32">
                 <h1 className="search__header text-white text-4xl md:text-6xl font-thin mb-8">Welcome home, Earthling</h1>
                 <div className="max-w-md mx-auto mt-4">
-                {/* <input
-                type="text"
-                placeholder="Search..."
-                className="w-full px-4 py-2 rounded bg-white text-black"
-                /> */}
-
-                    {/* <div>
-                        <button onClick={() => dispatch({ type: 'SET_MENU', payload: true })}>
-                            Open Menu
-                        </button>
-                    </div> */}
                     <form onSubmit={handleSubmit} noValidate>
                         <label className="relative block">
                             <span className="xyz absolute inset-y-0 left-0 flex items-center pl-3">
@@ -65,12 +52,6 @@ const LandingComponent: React.FC = () => {
                                 placeholder="Enter your keyword to search images & videos" type="text" />
                         </label>
                     </form>
-
-                    {/* <div className="mt-8 text-sm">
-                        <button className="bg-white text-black px-6 py-2 rounded-full flex items-center justify-center mx-auto" onClick={() => dispatch({ type: 'SET_LANDING', payload: false })}>
-                        <span className="mr-2">▶</span> Expedition 51 Launch – June 4, 2020
-                        </button>
-                    </div> */}
 
                     <section className="mt-24 xyz22">
                         <h2 className="text-2xl font-light mb-4">Explore Space with NASA’s Images, Videos, and Data</h2>

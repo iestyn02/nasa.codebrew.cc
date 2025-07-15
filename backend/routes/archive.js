@@ -44,17 +44,22 @@ const formatDate = (input) => {
   return `${date.toISOString().split('T')[0]}`;
 };
 
+const ITEMS_PER_PAGE = 12
+
 router.get('/', cacheMiddleware(
-  req => `apod_${req.query.date}`,
+  req => `archive_${req.params.query}_${req.params.page}`,
   async (req) => {
-    const { date } = req.query;
-    
-    const response = await axios.get(`${NASA_BASE_URL}/planetary/apod`, {
+
+    const { query, page } = req.query;
+
+    const response = await axios.get(`${NASA_IMAGE_BASE_URL}/search`, {
       params: {
-        api_key: process.env.NASA_API_KEY,
-        date,
+        q: query,
+        page: page || 1,
+        page_size: ITEMS_PER_PAGE
       },
     });
+
     return response.data;
   }
 ));

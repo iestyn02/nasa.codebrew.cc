@@ -11,8 +11,6 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-console.info(process.env);
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

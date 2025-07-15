@@ -7,6 +7,7 @@ dotenv.config();
 import index from './routes/index.js';
 import apod from './routes/apod.js';
 import archive from './routes/archive.js';
+import snapshot from './routes/snapshot.js';
 
 export const app = express();
 
@@ -16,3 +17,4 @@ app.use(express.json());
 app.use('/', index);
 app.use('/apod', apod);
 app.use('/archive', archive);
+app.use('/snapshot', snapshot);

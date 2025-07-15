@@ -1,30 +1,23 @@
 import {
-  BrowserRouter,
-  createBrowserRouter,
   isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
-  RouterProvider,
   Scripts,
-  ScrollRestoration,
-  type Router
+  ScrollRestoration
 } from 'react-router';
-
-// import { RouterProvider, type Router as RemixRouter} from 'react-router-dom';
 
 import type { Route } from './+types/root';
 
 import { AppProvider } from './state/context';
 
-import routes from './routes';
-
 import './app.css';
 import './2.css';
-import './icons.css';
+import './styles/icons.css';
 
 /** @components */
 import AppComponent from './components/app';
+
 import HeaderComponent from './components/header';
 
 export const links: Route.LinksFunction = () => [
@@ -58,8 +51,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {/* <BrowserRouter basename="/a5de8ad3" /> */}
-        {/* <RouterProvider router={router} /> */}
         <AppProvider>
           <AppComponent>
             { children }
@@ -74,7 +65,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />
-  // return <BrowserRouter basename="/a5de8ad3" />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -93,17 +83,6 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     stack = error.stack;
   }
 
-  // return (
-  //   <main className="pt-16 p-4 container mx-auto">
-  //       <h1>{message}</h1>
-  //       <p>{details}</p>
-  //       {stack && (
-  //         <pre className="w-full p-4 overflow-x-auto">
-  //           <code>{stack}</code>
-  //         </pre>
-  //       )}
-  //   </main>
-  // )
   return (
     <main className="relative h-screen text-white overflow-y-auto">
       <div className="relative z-10 px-6 py-8"> {/* bg-opacity-50 */}
