@@ -30,13 +30,14 @@ npm run dev
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
 ---
-### 4. Project Information
+## 🛠️ Tech Stack
 
 - **React**
 - **TypeScript**
 - **Vite**
 - **React Router**
-- **Context API** (for state management)
+- **NodeJS**
+- **Express**
 
 ---
 
