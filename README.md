@@ -6,6 +6,14 @@ A full-stack web application built with React and Express that connects users to
 
 ## 🚀 Getting Started
 
+> ⚠️ **Requires Node.js v22 or higher**
+
+Make sure you have Node.js v22+ installed. You can check your version with:
+
+```bash
+node -v
+```
+
 ### 1. Clone the Repository
 
 ```bash
@@ -30,7 +38,7 @@ npm run start
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
 <!-- --- -->
-<br></br>
+<!-- <br></br> -->
 
 ## ⚙️ Environment Variables (`.env`)
 
@@ -49,7 +57,7 @@ The application uses a `.env` file to manage environment-specific settings like 
 
 
 
-<br></br>
+<!-- <br></br> -->
 ## 🛠️ Tech Stack
 
 - **React**
@@ -60,7 +68,7 @@ The application uses a `.env` file to manage environment-specific settings like 
 - **Express**
 
 <!-- --- -->
-<br></br>
+<!-- <br></br> -->
 
 ## 📂 Project Structure
 
@@ -76,7 +84,7 @@ src/
 ```
 
 <!-- --- -->
-<br></br>
+<!-- <br></br> -->
 
 ## 🧪 Testing
 
@@ -97,7 +105,7 @@ docker run -p 3000:3000 nasa-app
 ```
 
 --- -->
-<br></br>
+<!-- <br></br> -->
 
 ## ✅ TODO
 
@@ -125,7 +133,7 @@ A list of key features and tasks still in progress or planned:
    - Auto-generate API docs (Swagger or markdown)  
    - Include more code comments and usage examples
 
-<br></br>
+<!-- <br></br> -->
 
 ## 📜 License
 
