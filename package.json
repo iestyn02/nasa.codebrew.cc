@@ -2,7 +2,7 @@
   "name": "nasa.codebrew.cc",
   "private": true,
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://demo.codebrew.cc/a5de8ad3",
   "scripts": {
     "build:be": "node build.js",
