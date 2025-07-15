@@ -37,8 +37,7 @@ npm run start
 
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
------
-<!-- <br></br> -->
+&nbsp;
 
 ## ⚙️ Environment Variables (`.env`)
 
@@ -57,7 +56,7 @@ The application uses a `.env` file to manage environment-specific settings like 
 
 
 
-<!-- <br></br> -->
+&nbsp;
 ## 🛠️ Tech Stack
 
 - **React**
@@ -68,7 +67,7 @@ The application uses a `.env` file to manage environment-specific settings like 
 - **Express**
 
 <!-- --- -->
-<!-- <br></br> -->
+&nbsp;
 
 ## 📂 Project Structure
 
@@ -84,7 +83,7 @@ src/
 ```
 
 <!-- --- -->
-<!-- <br></br> -->
+&nbsp;
 
 ## 🧪 Testing
 
@@ -105,7 +104,7 @@ docker run -p 3000:3000 nasa-app
 ```
 
 --- -->
-<!-- <br></br> -->
+&nbsp;
 
 ## ✅ TODO
 
@@ -133,7 +132,7 @@ A list of key features and tasks still in progress or planned:
    - Auto-generate API docs (Swagger or markdown)  
    - Include more code comments and usage examples
 
-<!-- <br></br> -->
+&nbsp;
 
 ## 📜 License
 
