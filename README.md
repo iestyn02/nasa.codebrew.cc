@@ -37,7 +37,7 @@ npm run start
 
 > The `.env` file will be auto-created on first run via a setup script. You'll be prompted to enter API keys and other config values.
 
---
+----
 <!-- <br></br> -->
 
 ## ⚙️ Environment Variables (`.env`)
